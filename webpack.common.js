@@ -24,4 +24,8 @@ module.exports = {
       }
     ]
   },
+//   devServer: {
+//     contentBase: './dist',
+//     host: 'localhost'
+//   }
 };
