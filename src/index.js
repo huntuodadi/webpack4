@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import printMe from './print.js';
+import {cube} from './math.js';
 import './style.css';
 function component() {
   var element = document.createElement('div');
@@ -10,7 +11,7 @@ function component() {
   btn.innerHTML = 'Click';
   btn.onclick = printMe;
   element.appendChild(btn);
-
+  console.log(cube(3));
   return element;
 }
 
