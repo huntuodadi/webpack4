@@ -1,25 +1,23 @@
 import _ from 'lodash';
-import printMe from './print.js';
-import {cube} from './math.js';
-import './style.css';
+
 function component() {
-  var element = document.createElement('div');
-  var btn = document.createElement('button');
+    var element = document.createElement('div');
+  var button = document.createElement('button');
+  var br = document.createElement('br');
 
+  button.innerHTML = 'Click me and look at the console!';
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  element.appendChild(br);
+  element.appendChild(button);
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  btn.innerHTML = 'Click';
-  btn.onclick = printMe;
-  element.appendChild(btn);
-  console.log(cube(3));
-  return element;
-}
+  // Note that because a network request is involved, some indication
+  // of loading would need to be shown in a production-level site/app.
+  button.onclick = e => import(/* webpackChunkName: "print" */ './print').then(module => {
+    var print = module.default;
+    print();
+  });
+
+    return element;
+  }
 
 document.body.appendChild(component());
-
-if(module.hot) {
-  module.hot.accept('./print.js', function() {
-    console.log('uodate pritn module');
-    printMe();
-  })
-}

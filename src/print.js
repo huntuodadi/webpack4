@@ -1,3 +1,4 @@
+console.log('the print module has been loaded');
 export default function printMe() {
-  console.log('I get called from print.js!');
+  console.log('button clicked');
 }    
