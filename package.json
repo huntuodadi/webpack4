@@ -1,5 +1,5 @@
 {
-  "name": "webpack-learning",
+  "name": "webpack4",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -10,7 +10,7 @@
     "server": "node dev-server.js",
     "build": "webpack --config webpack.prod.js"
   },
-  "author": "",
+  "author": "zzy",
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",

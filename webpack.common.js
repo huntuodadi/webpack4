@@ -2,10 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MyPlugin = require('./plugins/myplugin');
 
 module.exports = {
+  mode: 'development',
   entry: {
-    index: './src/index.ts'
+    main: './src/index.ts'
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -13,6 +15,7 @@ module.exports = {
       title: 'Production'
     }),
     new webpack.HashedModuleIdsPlugin(),
+    new MyPlugin({options: true})
   ],
   output: {
     filename: 'bundle.js',
