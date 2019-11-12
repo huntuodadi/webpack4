@@ -38,8 +38,15 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader','css-loader', 'postcss-loader']
+        test: /\.(css|sass)$/i,
+        use: ['style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            // 如果在sass里又引入了一个sass, 第2个sass只会走css-loader, 配置impeortLoaders: 2会再往前执行两个loader
+            importLoaders: 2
+          }
+        }, 'sass-loader', 'postcss-loader']
       }
     ]
   },
