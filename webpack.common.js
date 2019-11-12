@@ -7,7 +7,8 @@ const MyPlugin = require('./plugins/myplugin');
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
+    sub: './src/index.js'
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -19,7 +20,8 @@ module.exports = {
     new MyPlugin({options: true})
   ],
   output: {
-    filename: 'bundle.js',
+    // publicPath: 'http://cdn.com.cn',
+    filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
