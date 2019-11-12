@@ -12,7 +12,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Production'
+      title: 'Production',
+      template: 'src/index.html'
     }),
     new webpack.HashedModuleIdsPlugin(),
     new MyPlugin({options: true})
