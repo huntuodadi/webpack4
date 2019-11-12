@@ -7,7 +7,7 @@ const MyPlugin = require('./plugins/myplugin');
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/index.ts'
+    main: './src/index.js'
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -27,9 +27,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        test: /\.(png|jpe?g|gif)$/i,
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: '[name]_[hash].[ext]',
+            outputPath: 'images/',
+            limit: 2048
+          }
+        }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader','css-loader', 'postcss-loader']
       }
     ]
   },
