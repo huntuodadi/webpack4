@@ -4,6 +4,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MyPlugin = require('./plugins/myplugin');
 
+
 module.exports = {
   mode: 'development',
   // prod模式下用cheap-module-source-map
@@ -11,7 +12,9 @@ module.exports = {
   entry: './src/index.js',
   devServer: {
     contentBase: './dist',
-    open: true
+    open: true,
+    hot: true,
+    hotOnly: true
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -20,7 +23,8 @@ module.exports = {
       template: 'src/index.html'
     }),
     new webpack.HashedModuleIdsPlugin(),
-    new MyPlugin({options: true})
+    new MyPlugin({options: true}),
+    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     publicPath: '/',
