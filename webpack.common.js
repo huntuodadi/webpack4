@@ -9,6 +9,10 @@ module.exports = {
   // prod模式下用cheap-module-source-map
   devtool: 'cheap-module-eval-source-map', //源代码和bundle的映射关系 cheap指定了报错信息精确到行 module表示涵盖了第三方库 eval用eval()执行代码
   entry: './src/index.js',
+  devServer: {
+    contentBase: './dist',
+    open: true
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -19,7 +23,7 @@ module.exports = {
     new MyPlugin({options: true})
   ],
   output: {
-    // publicPath: 'http://cdn.com.cn',
+    publicPath: '/',
     filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
