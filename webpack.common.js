@@ -6,10 +6,9 @@ const MyPlugin = require('./plugins/myplugin');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    main: './src/index.js',
-    sub: './src/index.js'
-  },
+  // prod模式下用cheap-module-source-map
+  devtool: 'cheap-module-eval-source-map', //源代码和bundle的映射关系 cheap指定了报错信息精确到行 module表示涵盖了第三方库 eval用eval()执行代码
+  entry: './src/index.js',
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({

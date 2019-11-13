@@ -10,6 +10,8 @@
 // console.log(body);
 // body.appendChild(img);
 // createImage();
-import './style.css';
-var root = document.getElementById('root');
-root.innerHTML = '<div class="iconfont iconcart-full">abc</div>';
+
+// import './style.css';
+// var root = document.getElementById('root');
+// root.innerHTML = '<div class="iconfont iconcart-full">abc</div>';
+console.log('hello world!!');
