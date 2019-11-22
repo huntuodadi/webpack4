@@ -13,8 +13,8 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     open: true,
-    hot: true,
-    hotOnly: true
+    hot: true
+    // hotOnly: true
   },
   plugins: [
     new CleanWebpackPlugin(),
