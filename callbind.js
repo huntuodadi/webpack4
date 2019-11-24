@@ -43,11 +43,6 @@ const info = function(resValue1, resValue2, resValue3, resValue4) {
   return resValue1;
 }
 
-// const res = info.myApply(obj, ['bbc', 'aab', 'ccd', {a: 'b'}]);
-// console.log(res);
-
-// const res = info.myCall(obj, 'bbc', 'aab', 'ccd', {a: 'b'});
-// console.log(res);
 
 const otherFun = info.myBind(obj, 'bbc');
 const res = otherFun('aab');
